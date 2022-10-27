@@ -13,3 +13,16 @@
 
 ## required setup to use this repository
 * later Darth Vader!
+* basic prerequisites (may need more for these): ansible, vagrant, vagrant-libvirt
+  * troubleshooting didn't go so well for this on my system, so use virtualbox instead
+* ensure that your user id is in the "wheel" group, or "sudoers" group
+
+## how to use this repository
+
+1. clone it using 
+```git clone https://github.com/davyLSDev/webdev.git```
+2. cd into webdev
+3. execute setup.sh ```./setup.sh```
+4. edit the deploy.yml and reprovision the vagrant box
+* if the box is running, use ```reprovision.sh```
+* if the box is not running, use ```runReprovision.sh```
