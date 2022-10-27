@@ -11,6 +11,11 @@
 * [vagrnt boxes](https://app.vagrantup.com/boxes/search?utf8=%E2%9C%93&sort=downloads&provider=&q=ubuntu%2Fjammy64)
 * the seed idea for the development environment came from [here](https://fedoramagazine.org/using-ansible-provision-vagrant-boxes/)
 
+The following helped work out how to set up a better video graphics card
+* [vagrant virtualbox API](https://developer.hashicorp.com/vagrant/docs/providers/virtualbox/configuration)
+* [Vboxmanage manual](https://www.virtualbox.org/manual/ch08.html)
+* [VBoxManage commands overview](https://www.virtualbox.org/manual/ch08.html#vboxmanage-cmd-overview)
+
 ## required setup to use this repository
 * later Darth Vader!
 * basic prerequisites (may need more for these): ansible, vagrant, vagrant-libvirt

@@ -56,6 +56,12 @@ Vagrant.configure("2") do |config|
   #   # Customize the amount of memory on the VM:
   #   vb.memory = "1024"
   # end
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = true
+    vb.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
+    vb.memory = 4096
+    vb.name = "webdev"
+  end
   #
   # View the documentation for the provider you are using for more
   # information on available options.
@@ -67,4 +73,10 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+
+  # Provision this box using ansible
+  config.vm.provision :ansible do |ansible|
+    ansible.playbook = "webdev.yml"
+  end
+  
 end
