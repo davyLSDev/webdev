@@ -29,5 +29,13 @@ The following helped work out how to set up a better video graphics card
 2. cd into webdev
 3. execute setup.sh ```./setup.sh```
 4. edit the deploy.yml and reprovision the vagrant box
-* if the box is running, use ```reprovision.sh```
-* if the box is not running, use ```runReprovision.sh```
+* if the box is running, use ```./utils/reprovision.sh```
+* if the box is not running, use ```./utils/runReprovision.sh```
+
+The bash scripts have been included in case need to familiarise yourself with vagrant commands:
+
+vagrant up
+vagrant up --provision
+vagrant halt
+vagrant destroy
+vagrant status
