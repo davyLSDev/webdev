@@ -78,5 +78,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision :ansible do |ansible|
     ansible.playbook = "webdev.yml"
   end
+
+  config.vm.define :webdev do |vname|
+  end
   
 end
