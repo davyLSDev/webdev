@@ -1,0 +1,7 @@
+nodejs LTS (18 - currently) via nvm install
+See -> https://green.cloud/docs/how-to-install-node-js-and-npm-on-debian-11/
+chromium
+vscode (is there a way to automatically install vscode modules via ansible?)
+git
+build-essential
+gitkrakken here -> https://www.gitkraken.com/download/linux-deb/gitkraken-amd64.deb

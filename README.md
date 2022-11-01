@@ -39,3 +39,5 @@ vagrant up --provision
 vagrant halt
 vagrant destroy
 vagrant status
+
+* for this machine the user name and password are "vagrant"

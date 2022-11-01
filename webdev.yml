@@ -2,13 +2,63 @@
 - hosts: all
   become: yes
   become_user: root
+  vars:
+    
+    downloaded_package_list:
+      - /tmp/code_1.72.2-1665614327_amd64.deb
+      - /tmp/gitkraken-amd64.deb
+    nvm_install_script: /tmp/install.sh
   tasks:
   - name: Install basic Gnome desktop
     apt:
       pkg:
         - gnome-session
         - gdm3
+        - chromium-bsu # only found out about this attempting manual install
+        - git
+        - build-essential
+        - tasksel
       state: latest
       update_cache: true
+  - name: Install gnome-desktop
+    command: tasksel install desktop gnome-desktop
+
+ # unfortunately, these links are not very stable   
+ # - name: get non-apt repository packages
+ #   get_url:
+ #     url: "{{ item }}"
+ #     dest: /tmp
+ #   loop:
+    #  - https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh
+    #  - https://code.visualstudio.com/download/code_1.72.2-1665614327_amd64.deb
+    #  - https://release.gitkraken.com/linux/gitkraken-amd64.deb
+
+  - name: Install downloaded .deb packages
+    command: dpkg -i "{{ item }}"
+    loop: "{{ downloaded_package_list }}"
+
+# Install nvm et. al.
+  - name: Make nvm install script executable
+    file:
+      path: /tmp/install.sh 
+      mode: '755'
+
+  - name: Install nvm
+    command: bash /tmp/install.sh
+    become: false
+
+ # These bits failed, system doesn't seem to know about nvm yet:
+ # - name: Install node
+ #   command: nvm install node
+ #   become: false      
+
+ # - name: Install LTS node
+ #   command: nvm install --lts
+ #   become: false
+
   - name: Reboot
-    reboot: 
+    reboot:
+
+#  - name: Test doing something as remote user
+#    command: touch /home/vagrant/testing
+#    become: false       
